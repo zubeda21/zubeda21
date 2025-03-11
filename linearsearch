@@ -1,0 +1,15 @@
+def linear_searchrec(arr, element, index=0):
+    if index >= len(arr):
+        return -1
+    if arr[index] == element:
+        return index
+    return linear_searchrec(arr, element, index + 1)
+
+arr = [3, 1, 4, 1, 5, 9, 2]
+element = 5
+result = linear_searchrec(arr, element)
+
+if result != -1:
+    print(f"element found at index {result}.")
+else:
+    print("element not found.")
