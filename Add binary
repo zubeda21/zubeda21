@@ -1,0 +1,52 @@
+class Solution:
+    def addBinary(self, a: str, b: str) -> str:
+        carry=0
+        result=[]
+        zeros=abs(len(a)-len(b))
+        k='0'*zeros
+        if len(a)<len(b):
+            a=k+a
+        else:
+            b=k+b 
+        for i in range(len(a)-1,-1,-1):
+            if a[i] =='1'and b[i]=='1':
+                if carry==1:
+                    sum=1
+                    carry=1
+                    result.append(sum)
+                else:
+                    sum=0
+                    carry=1
+                    result.append(sum)
+
+            elif a[i]=='0'and b[i]=='0':
+                if carry==1:
+                    sum=1
+                    carry=0
+                    result.append(sum)
+                else:
+                    sum=0
+                    carry=0
+                    result.append(sum)
+            else:
+                if carry==1:
+                    sum=0
+                    carry=1
+                    result.append(sum)
+                else:
+                    sum=1
+                    carry=0
+                    result.append(sum)
+        if carry==1:
+            result.append(carry)
+        answer =''
+        for i in range(len(result)-1,-1,-1):
+            answer += str(result[i])
+        return answer        
+                        
+
+
+
+
+
+        
